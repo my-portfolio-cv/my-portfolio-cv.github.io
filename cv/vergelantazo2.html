@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vergel Antazo - Resume</title>
+    <style>
+        :root { --is-paid: false; --expire-date: "2026-07-02T13:25:03.084Z"; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 750px; margin: 40px auto; padding: 0 24px; }
+        .header { text-align: center; margin-bottom: 25px; }
+        h1 { font-size: 32px; font-weight: bold; color: #895d47; margin: 0 0 5px 0; text-transform: uppercase; }
+        .subtitle { font-size: 14px; font-weight: bold; color: #222; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .contact-info { font-size: 13px; color: #555; }
+        h2 { font-size: 15px; text-transform: uppercase; color: #895d47; border-bottom: 1px solid #dcbfa6; padding-bottom: 4px; margin-top: 25px; margin-bottom: 12px; }
+        p, li { font-size: 13px; color: #333; }
+        body::before {
+            content: "UNPAID PREVIEW • WATERMARK"; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 4.5rem; font-weight: bold; color: rgba(137, 93, 71, 0.15); z-index: 9999; pointer-events: none; white-space: nowrap;
+            display: var(--is-paid) === 'true' ? 'none' : 'block';
+        }
+    </style>
+</head>
+<body>
+    <script>
+        (function() {
+            const rootStyle = getComputedStyle(document.documentElement);
+            const isPaid = rootStyle.getPropertyValue('--is-paid').trim() === 'true';
+            const expireTime = new Date(rootStyle.getPropertyValue('--expire-date').replace(/"/g, '').trim());
+            if (!isPaid && new Date() > expireTime) {
+                document.body.innerHTML = '<div style="text-align:center; margin-top:20%; font-family:sans-serif; color:#666;"><h2 style="color:#895d47;">Preview Link Expired</h2><p>Mangyaring makipag-ugnayan sa iyong CV maker upang ma-activate ang link.</p></div>';
+            }
+        })();
+    </script>
+    <div class="header">
+        <h1>Vergel Antazo</h1>
+        <div class="subtitle">AI Automation</div>
+        <div class="contact-info">09325817255 &bull; vergel.antazo@gmail.com &bull; Binangonan Rizal &bull; linkedin.com/test</div>
+    </div>
+    <h2>Professional Summary</h2>
+    <p>test lang naman ito</p>
+    <h2>Skills</h2>
+    <p><b>Core Competencies:</b> programmer, it, web devops</p>
+    <h2>Tools & Platforms</h2>
+    <p>google, youtube</p>
+</body>
+</html>
